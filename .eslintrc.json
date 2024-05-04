@@ -1,0 +1,23 @@
+{
+    "env": {
+        "browser": false,
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": "airbnb-base",
+    "overrides": [
+        {
+            "files":["./src/server.js"],
+            "rules": {
+                "no-console": "off"
+            }
+        }
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "eslint-plugin-import/no-extraneous-dependencies":"off"
+    }
+}

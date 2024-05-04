@@ -58,13 +58,15 @@ const handlers = {
 
     books.push(book);
 
-    return h.response({
-      status: 'success',
-      message: 'Buku berhasil ditambahkan',
-      data: {
-        bookId: id,
-      },
-    });
+    return h
+      .response({
+        status: 'success',
+        message: 'Buku berhasil ditambahkan',
+        data: {
+          bookId: id,
+        },
+      })
+      .code(201);
   },
 };
 

@@ -1,4 +1,5 @@
 const Hapi = require('@hapi/hapi');
+const routes = require('./routes');
 
 const init = async () => {
   const server = Hapi.server({
@@ -8,6 +9,7 @@ const init = async () => {
 
   await server.start();
   console.log('Server running on %s', server.info.uri);
+  server.route(routes);
 };
 
 process.on('unhandledRejection', (err) => {

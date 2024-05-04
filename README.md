@@ -7,7 +7,7 @@ This project is created in order to complete [Belajar Membuat Aplikasi Back-End 
 ### Mandatory Criterias
 
 - [x] Use `9000` as port number 
-- [ ] Run the app using `npm run` command
+- [x] Run the app using `npm run` command
 - [ ] Create/save book using `POST /books` endpoint
 - [ ] Read/show all books using `GET /books`
 - [ ] Read/show book detail using `GET /books/{bookId}`

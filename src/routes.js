@@ -4,7 +4,7 @@ const routes = [
   {
     method: 'POST',
     path: '/books',
-    handler: addBookHanlder,
+    handler: (req, h) => addBookHanlder(req, h),
   },
 ];
 

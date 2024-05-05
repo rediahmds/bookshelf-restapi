@@ -84,6 +84,27 @@ const handlers = {
       })
       .code(200);
   },
+  getBookById: (req, h) => {
+    const { id } = req.params;
+
+    const matchedBook = books.find((book) => book.id === id);
+
+    if (!matchedBook) {
+      return h
+        .response({
+          status: 'fail',
+          message: 'Buku tidak ditemukan',
+        })
+        .code(404);
+    }
+
+    return h.response({
+      status: 'success',
+      data: {
+        book: matchedBook,
+      },
+    });
+  },
 };
 
 module.exports = handlers;

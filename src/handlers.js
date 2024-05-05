@@ -68,6 +68,22 @@ const handlers = {
       })
       .code(201);
   },
+  getAllBooks: (req, h) => {
+    const allBooks = books.map((book) => ({
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    }));
+
+    return h
+      .response({
+        status: 'success',
+        data: {
+          books: allBooks,
+        },
+      })
+      .code(200);
+  },
 };
 
 module.exports = handlers;

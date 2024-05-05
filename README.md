@@ -8,7 +8,7 @@ This project is created in order to complete [Belajar Membuat Aplikasi Back-End 
 
 - [x] Use `9000` as port number 
 - [x] Run the app using `npm run` command
-- [ ] Create/save book using `POST /books` endpoint
+- [x] Create/save book using `POST /books` endpoint
 - [ ] Read/show all books using `GET /books`
 - [ ] Read/show book detail using `GET /books/{bookId}`
 - [ ] Update/edit book data using `PUT /books/{bookId}`

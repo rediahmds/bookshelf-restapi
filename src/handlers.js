@@ -98,12 +98,14 @@ const handlers = {
         .code(404);
     }
 
-    return h.response({
-      status: 'success',
-      data: {
-        book: matchedBook,
-      },
-    });
+    return h
+      .response({
+        status: 'success',
+        data: {
+          book: matchedBook,
+        },
+      })
+      .code(200);
   },
 };
 

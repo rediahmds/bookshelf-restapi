@@ -8,9 +8,19 @@
     "extends": "airbnb-base",
     "overrides": [
         {
-            "files":["./src/server.js"],
+            "files": [
+                "./src/server.js"
+            ],
             "rules": {
                 "no-console": "off"
+            }
+        },
+        {
+            "files": [
+                "./src/utils/books.js"
+            ],
+            "rules": {
+                "implicit-arrow-linebreak": "off"
             }
         }
     ],
@@ -18,6 +28,6 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "eslint-plugin-import/no-extraneous-dependencies":"off"
+        "eslint-plugin-import/no-extraneous-dependencies": "off"
     }
 }

@@ -1,6 +1,10 @@
 const { customAlphabet } = require('nanoid');
 const books = require('./books');
-const { getBooksByName, getBooksByReadingStatus } = require('./utils/books');
+const {
+  getBooksByName,
+  getBooksByReadingStatus,
+  getBooksByFinishedStatus,
+} = require('./utils/books');
 
 const nanoid = customAlphabet('1234567890qwertyuiop', 10);
 
@@ -70,7 +74,7 @@ const handlers = {
       .code(201);
   },
   getAllBooks: (req, h) => {
-    const { name, reading } = req.query;
+    const { name, reading, finished } = req.query;
 
     const allBooks = books.map((book) => ({
       id: book.id,
@@ -85,6 +89,11 @@ const handlers = {
     if (reading) {
       const readingStatus = reading === '1';
       return getBooksByReadingStatus(readingStatus, h);
+    }
+
+    if (finished) {
+      const finishedStatus = finished === '1';
+      return getBooksByFinishedStatus(finishedStatus, h);
     }
 
     return h

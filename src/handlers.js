@@ -175,6 +175,28 @@ const handlers = {
       })
       .code(200);
   },
+  deleteBookById: (req, h) => {
+    const { id } = req.params;
+
+    const matchedBookIndex = books.findIndex((book) => book.id === id);
+    const isBookFound = matchedBookIndex !== -1;
+
+    if (!isBookFound) {
+      return h
+        .response({
+          status: 'fail',
+          message: 'Buku gagal dihapus. Id tidak ditemukan',
+        })
+        .code(404);
+    }
+
+    // deletes the book at specified index
+    books.splice(matchedBookIndex, 1);
+    return h.response({
+      status: 'success',
+      message: 'Buku berhasil dihapus',
+    });
+  },
 };
 
 module.exports = handlers;

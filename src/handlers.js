@@ -107,6 +107,74 @@ const handlers = {
       })
       .code(200);
   },
+  updateBook: (req, h) => {
+    const {
+      name,
+      year,
+      author,
+      summary,
+      publisher,
+      pageCount,
+      readPage,
+      reading,
+    } = req.payload;
+
+    const { id } = req.params;
+
+    if (!name) {
+      return h
+        .response({
+          status: 'fail',
+          message: 'Gagal memperbarui buku. Mohon isi nama buku',
+        })
+        .code(400);
+    }
+
+    if (readPage > pageCount) {
+      return h
+        .response({
+          status: 'fail',
+          message:
+            'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
+        })
+        .code(400);
+    }
+
+    const matchedBook = books.find((book) => book.id === id);
+    const matchedBookIndex = books.findIndex((book) => book.id === id);
+    if (!matchedBook || matchedBookIndex === -1) {
+      return h
+        .response({
+          status: 'fail',
+          message: 'Gagal memperbarui buku. Id tidak ditemukan',
+        })
+        .code(404);
+    }
+
+    const updatedAt = new Date().toISOString();
+    const updatedBook = {
+      ...matchedBook,
+      name,
+      year,
+      author,
+      summary,
+      publisher,
+      pageCount,
+      readPage,
+      reading,
+      updatedAt,
+    };
+
+    // replaces the book at specified index. actually, it deletes and places new ones
+    books.splice(matchedBookIndex, 1, updatedBook);
+
+    return h
+      .response({
+        status: 'success',
+        message: 'Buku berhasil diperbarui',
+      })
+      .code(200);
+  },
 };
 
 module.exports = handlers;

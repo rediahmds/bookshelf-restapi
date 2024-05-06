@@ -34,4 +34,22 @@ const getBooksByName = (bookName, h) => {
     .code(200);
 };
 
-module.exports = { getBooksByName };
+const getBooksByReadingStatus = (readingStatus, h) => {
+  const matchedBooks = books.filter((book) => book.reading === readingStatus);
+  const booksWithCustomProps = matchedBooks.map((book) => ({
+    id: book.id,
+    name: book.name,
+    publisher: book.publisher,
+  }));
+
+  return h
+    .response({
+      status: 'success',
+      data: {
+        books: booksWithCustomProps,
+      },
+    })
+    .code(200);
+};
+
+module.exports = { getBooksByName, getBooksByReadingStatus };

@@ -12,7 +12,7 @@ This project is created in order to complete [Belajar Membuat Aplikasi Back-End 
 - [x] Read/show all books using `GET /books`
 - [x] Read/show book detail using `GET /books/{bookId}`
 - [x] Update/edit book data using `PUT /books/{bookId}`
-- [ ] Delete/remove book using `DELETE /book/{bookId}`
+- [x] Delete/remove book using `DELETE /book/{bookId}`
 
 ### Optional Criterias (nice to have)
 

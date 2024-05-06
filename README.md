@@ -20,4 +20,4 @@ Implement query params to `GET /books` endpoint
 
 - [x] `/books?name=<str>` return books that contains the `<str>`. Note that the name is **not case sensitive**
 - [x] `/books?reading=<int, 0 or 1>` filter the book by reading progress status
-- [ ] `/books?finished=<int, 0 or 1>` filter books by finished reading status
+- [x] `/books?finished=<int, 0 or 1>` filter books by finished reading status

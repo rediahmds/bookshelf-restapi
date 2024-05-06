@@ -52,4 +52,24 @@ const getBooksByReadingStatus = (readingStatus, h) => {
     .code(200);
 };
 
-module.exports = { getBooksByName, getBooksByReadingStatus };
+const getBooksByFinishedStatus = (finishedStatus, h) => {
+  const matchedBooks = books.filter((book) => book.finished === finishedStatus);
+  const booksWithCustomProps = matchedBooks.map((book) => ({
+    id: book.id,
+    name: book.name,
+    publisher: book.publisher,
+  }));
+
+  return h.response({
+    status: 'success',
+    data: {
+      books: booksWithCustomProps,
+    },
+  });
+};
+
+module.exports = {
+  getBooksByName,
+  getBooksByReadingStatus,
+  getBooksByFinishedStatus,
+};

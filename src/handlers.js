@@ -1,5 +1,6 @@
 const { customAlphabet } = require('nanoid');
 const books = require('./books');
+const { getBooksByName } = require('./utils/books');
 
 const nanoid = customAlphabet('1234567890qwertyuiop', 10);
 
@@ -69,12 +70,17 @@ const handlers = {
       .code(201);
   },
   getAllBooks: (req, h) => {
+    const { name } = req.query;
+
     const allBooks = books.map((book) => ({
       id: book.id,
       name: book.name,
       publisher: book.publisher,
     }));
 
+    if (name) {
+      return getBooksByName(name, h);
+    }
     return h
       .response({
         status: 'success',
